@@ -2,9 +2,11 @@
 from decimal import Decimal
 import requests # type: ignore
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CurrencyConversionSerializer
+from .serializers import CurrencyConversionSerializer, CategorySerializer
+from .models import Category
 
 class CurrencyConversionAPIView(APIView):
     """
@@ -54,3 +56,14 @@ class CurrencyConversionAPIView(APIView):
                 return Response(context, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def CategoryListView(requrest):
+    categories = Category.objects.all()
+    serialized_categories = CategorySerializer(categories, many=True)
+    context = {
+        'categories': serialized_categories.data
+    }
+
+    return Response(context)
