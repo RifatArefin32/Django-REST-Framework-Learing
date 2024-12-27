@@ -62,3 +62,6 @@ pip freeze > requirements.txt
 ```
 
 ## Initialize git and add `.gitignore` file
+
+# Notes
+- [Serializer]()
