@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from .models import Category
 
 class CurrencyConversionSerializer(serializers.Serializer):
     amount = serializers.DecimalField(max_digits=12, decimal_places=2)
@@ -11,3 +12,8 @@ class CurrencyConversionSerializer(serializers.Serializer):
             raise serializers.ValidationError("Source and destination currencies must be different.")
         return data
 
+
+class CategorySerializer(serializers.Serializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
