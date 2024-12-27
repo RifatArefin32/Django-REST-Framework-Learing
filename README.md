@@ -50,6 +50,10 @@ Exit from the postgres environment.
 \q  # exit from postgres terminal
 exit    # exit from postgres user
 ```
+Run migration for the initial migration files.
+```bash
+python3 manage.py migrate
+```
 
 ## Add `requirements.txt` file. 
 We'll add this file when we install any package to tthe project.
