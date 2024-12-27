@@ -2,8 +2,9 @@
 from decimal import Decimal
 import requests # type: ignore
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from .serializers import CurrencyConversionSerializer, CategorySerializer
 from .models import Category
@@ -63,6 +64,7 @@ class CurrencyConversionAPIView(APIView):
 Function based View
 """
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def CategoryListView(request):
     try:
         if request.method == 'GET':
