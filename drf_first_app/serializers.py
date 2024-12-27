@@ -13,7 +13,7 @@ class CurrencyConversionSerializer(serializers.Serializer):
         return data
 
 
-class CategorySerializer(serializers.Serializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'

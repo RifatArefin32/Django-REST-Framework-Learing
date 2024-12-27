@@ -8,10 +8,11 @@ from rest_framework import status
 from .serializers import CurrencyConversionSerializer, CategorySerializer
 from .models import Category
 
+
+"""
+Class based view
+"""
 class CurrencyConversionAPIView(APIView):
-    """
-    API to convert an amount from one currency to another.
-    """
     def post(self, request):
         serializer = CurrencyConversionSerializer(data=request.data)
         if serializer.is_valid():
@@ -58,12 +59,41 @@ class CurrencyConversionAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET'])
-def CategoryListView(requrest):
-    categories = Category.objects.all()
-    serialized_categories = CategorySerializer(categories, many=True)
-    context = {
-        'categories': serialized_categories.data
-    }
-
-    return Response(context)
+"""
+Function based View
+"""
+@api_view(['GET', 'POST'])
+def CategoryListView(request):
+    try:
+        if request.method == 'GET':
+            categories = Category.objects.all()
+            serialized_categories = CategorySerializer(categories, many=True)
+            context = {
+                'message': "Data retrieved successfully",
+                'categories': serialized_categories.data
+            }
+            return Response(context, status=status.HTTP_200_OK)
+        
+        elif request.method == 'POST':
+            serializer = CategorySerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                context = {
+                    'message': "Category created successfully",
+                    'category': serializer.data
+                }
+                return Response(context, status=status.HTTP_201_CREATED)
+            
+            else:
+                context = {
+                    "message": "Invalid data", 
+                    "errors": serializer.errors
+                }, 
+                return Response(context, status=status.HTTP_400_BAD_REQUEST)
+            
+    except Exception as e:
+        context = {
+            "message": "An error occurred", 
+            "error": str(e)
+        }
+        return Response(context, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

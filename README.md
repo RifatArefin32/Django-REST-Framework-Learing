@@ -50,6 +50,20 @@ Exit from the postgres environment.
 \q  # exit from postgres terminal
 exit    # exit from postgres user
 ```
+Add the following snippet at `/drf_project/settings.py`
+```bash
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'drf_project',
+        'USER': 'drf_project_user',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',  # Set to empty string for localhost.
+        'PORT': '5432',       # Default PostgreSQL port.
+    }
+}
+```
+
 Run migration for the initial migration files.
 ```bash
 python3 manage.py migrate
@@ -69,5 +83,9 @@ Create our first app `drf_first_app` and add it in the `INSTALLED_APPS` array of
 python3 manage.py startapp drf_first_app
 ```
 
+## Create super user
+```bash
+python3 manage.py createsuperuser
+```
 # My Notes
 - [Serializer](/Notes/1.%20Serializer.md)
