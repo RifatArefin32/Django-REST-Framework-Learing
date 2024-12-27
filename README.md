@@ -63,5 +63,11 @@ pip freeze > requirements.txt
 
 ## Initialize git and add `.gitignore` file
 
-# Notes
-- [Serializer]()
+## Create App
+Create our first app `drf_first_app` and add it in the `INSTALLED_APPS` array of `/drf_project/settings.py`
+```bash
+python3 manage.py startapp drf_first_app
+```
+
+# My Notes
+- [Serializer](/Notes/1.%20Serializer.md)
