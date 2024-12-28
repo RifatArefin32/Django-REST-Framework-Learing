@@ -2,7 +2,7 @@
 
 # Project Setup
 
-## Installation
+### 1. Install dependencies
 First Create a project root directory and enter into it. 
 ```bash
 mkdir drf_project_root
@@ -24,7 +24,7 @@ django-admin startproject drf_project .
 ```
 Go to the `settings.py` file and register `'rest_framework'` in the `INSTALLED_APPS` array.
 
-## Database Connection (PostgreSQL database)
+### 2. Database Connection (PostgreSQL database)
 Install PostgreSQL (if not installed).
 ```bash
 sudo apt update
@@ -69,13 +69,13 @@ Run migration for the initial migration files.
 python3 manage.py migrate
 ```
 
-## Add `requirements.txt` file. 
+### 3. Add `requirements.txt` file. 
 We'll add this file when we install any package to tthe project.
 ```bash
 pip freeze > requirements.txt
 ```
 
-## Initialize git and add `.gitignore` file
+### 4. Initialize git and add `.gitignore` file
 
 # Clone project to local host
 - Clone the project
