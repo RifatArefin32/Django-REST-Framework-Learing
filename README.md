@@ -77,15 +77,26 @@ pip freeze > requirements.txt
 
 ## Initialize git and add `.gitignore` file
 
-## Create App
+# Clone project to local host
+- Clone the project
+- Create virtual environment `env` and activate it
+- Install all the packages from `requirements.txt` file 
+```bash
+pip install -r requirements.txt
+```
+- Intigrate PostgreSQL to the project
+- Make migrations files and run all migration
+
+# Create App
 Create our first app `drf_first_app` and add it in the `INSTALLED_APPS` array of `/drf_project/settings.py`
 ```bash
 python3 manage.py startapp drf_first_app
 ```
 
-## Create super user
+# Create super user
 ```bash
 python3 manage.py createsuperuser
 ```
+
 # My Notes
 - [Serializer](/Notes/1.%20Serializer.md)
