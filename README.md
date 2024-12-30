@@ -134,3 +134,4 @@ for _ in range(10):  # Generate 10 fake categories
 
 # My Notes
 - [Serializer](/Notes/1.%20Serializer.md)
+- [Model Relationships](/Notes/2.%20Model%20Relationship.md)
