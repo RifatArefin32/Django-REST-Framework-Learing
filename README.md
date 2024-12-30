@@ -1,10 +1,10 @@
 # Django REST Framework 
-### [Project setup](#project-setup)
-### [Clone project to local host](#clone-project-to-local-host)
-### [Create app](#create-app)
-### [Create super user](#create-super-user)
-### [Create fake data for django models](#create-fake-data-for-models)
-### [My Notes](#my-notes)
+- [Project setup](#project-setup)
+- [Clone project to local host](#clone-project-to-local-host)
+- [Create app](#create-app)
+- [Create super user](#create-super-user)
+- [Create fake data for django models](#create-fake-data-for-models)
+- [My Notes](#my-notes)
 
 # Project Setup
 
