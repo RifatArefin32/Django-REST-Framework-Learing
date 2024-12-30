@@ -1,4 +1,10 @@
 # Django REST Framework 
+### [Project setup](#project-setup)
+### [Clone project to local host](#clone-project-to-local-host)
+### [Create app](#create-app)
+### [Create super user](#create-super-user)
+### [Create fake data for django models](#create-fake-data-for-models)
+### [My Notes](#my-notes)
 
 # Project Setup
 
@@ -97,6 +103,7 @@ python3 manage.py startapp drf_first_app
 ```bash
 python3 manage.py createsuperuser
 ```
+
 # Create fake data for models
 First install faker package to the virtual environment.
 ```bash
@@ -124,5 +131,6 @@ for _ in range(10):  # Generate 10 fake categories
     )
 
 ```
+
 # My Notes
 - [Serializer](/Notes/1.%20Serializer.md)
