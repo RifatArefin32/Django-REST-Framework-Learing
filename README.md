@@ -97,6 +97,31 @@ python3 manage.py startapp drf_first_app
 ```bash
 python3 manage.py createsuperuser
 ```
+# Create fake data for models
+First install faker package to the virtual environment.
+```bash
+pip install faker
+```
+Add this package to the `requirements.txt` file
+```bash
+pip freeze > requirements.txt
+```
+Generate fake data using the following commnad
+```bash
+python manage.py shell
 
+from faker import Faker
+from drf_first_app.models import Category
+
+fake = Faker()
+
+for _ in range(10):  # Generate 10 fake categories
+    Category.objects.create(
+        category_code=fake.unique.bothify(text="CAT###"),
+        name=fake.word().capitalize(),
+        description=fake.text(max_nb_chars=200)
+    )
+
+```
 # My Notes
 - [Serializer](/Notes/1.%20Serializer.md)

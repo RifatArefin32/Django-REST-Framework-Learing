@@ -1,4 +1,5 @@
 # views.py
+from faker import Faker
 from decimal import Decimal
 import requests # type: ignore
 from rest_framework.views import APIView
@@ -6,8 +7,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
-from .serializers import CurrencyConversionSerializer, CategorySerializer
-from .models import Category
+from drf_first_app.serializers import CurrencyConversionSerializer, CategorySerializer
+from drf_first_app.models import Category
 
 
 """
