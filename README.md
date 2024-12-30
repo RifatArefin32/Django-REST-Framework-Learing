@@ -109,7 +109,8 @@ pip freeze > requirements.txt
 Generate fake data using the following commnad
 ```bash
 python manage.py shell
-
+```
+```python
 from faker import Faker
 from drf_first_app.models import Category
 
